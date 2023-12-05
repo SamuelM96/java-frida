@@ -1,11 +1,15 @@
-import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class FridaExample {
     static {
-        String libPath = System.getProperty("user.dir") + "/libfrida-integration.so";
+        String osName = System.getProperty("os.name");
+        String libSuffix = ".so";
+        if (osName.startsWith("Mac")) {
+            libSuffix = ".dylib";
+        }
+        String libPath = System.getProperty("user.dir") + "/libfrida-integration" + libSuffix;
         System.out.println("[*] Loading Frida JNI lib @ " + libPath);
         System.load(libPath);
     }
@@ -37,7 +41,7 @@ public class FridaExample {
         int pid = -1;
         try {
             pid = Integer.parseInt(args[0]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.err.println("Invalid PID Number");
             System.exit(1);
         }
@@ -47,4 +51,3 @@ public class FridaExample {
         System.out.println("[!] Done!");
     }
 }
-

@@ -4,6 +4,7 @@
 # Gitignore for the following technologies: C, CMake, Java
 
 build/
+!include/libfrida-core.a
 
 # Prerequisites
 *.d

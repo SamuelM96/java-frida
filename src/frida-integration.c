@@ -1,4 +1,8 @@
-#include "frida-core.h"
+#ifdef __APPLE__
+#include "frida-core-macos-arm64.h"
+#else
+#include "frida-core-linux-x86_64.h"
+#endif
 
 #include <jni.h>
 #include <stdio.h>
