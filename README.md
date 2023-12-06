@@ -2,7 +2,9 @@
 
 An example project showing how to call a Frida script from Java using JNI and `frida-core`.
 
-## Usage/Building
+Uses Frida 16.1.8. Tested on Ubuntu (WSL), macOS Sonoma (Apple Silicon), and Windows 11. 
+
+## Usage
 
 ### Linux/macOS
 
