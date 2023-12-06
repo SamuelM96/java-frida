@@ -5,11 +5,13 @@ import java.io.IOException;
 public class FridaExample {
     static {
         String osName = System.getProperty("os.name");
-        String libSuffix = ".so";
+        String libName = "libfrida-integration.so";
         if (osName.startsWith("Mac")) {
-            libSuffix = ".dylib";
+            libName = "libfrida-integration.dylib";
+        } else if (osName.startsWith("Windows")) {
+            libName = "Debug/frida-integration.dll";
         }
-        String libPath = System.getProperty("user.dir") + "/libfrida-integration" + libSuffix;
+        String libPath = System.getProperty("user.dir") + "/" + libName;
         System.out.println("[*] Loading Frida JNI lib @ " + libPath);
         System.load(libPath);
     }

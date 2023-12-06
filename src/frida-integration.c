@@ -1,12 +1,13 @@
 #ifdef __APPLE__
 #include "frida-core-macos-arm64.h"
+#elif _WIN32
+#include "frida-core-windows-x86_64.h"
 #else
 #include "frida-core-linux-x86_64.h"
 #endif
 
 #include <jni.h>
 #include <stdio.h>
-#include <unistd.h>
 
 static void on_message(FridaScript *script, const char *message, GBytes *data, gpointer user_data) {
 	printf("Message from Frida: %s\n", message);

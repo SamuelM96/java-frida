@@ -5,7 +5,7 @@ if [ ! -d build ]; then
 fi
 
 pushd build
-EXAMPLE_PID=$(frida-ps | grep example | cut -d' ' -f1)
+EXAMPLE_PID=$(pidof example)
 if [ -z $EXAMPLE_PID ]; then
 	echo "Start ./build/example in another terminal"
 else

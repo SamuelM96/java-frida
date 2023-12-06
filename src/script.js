@@ -1,4 +1,4 @@
-let addr = Module.enumerateSymbols("example").filter(s => { return s.name == "print_loop" })[0].address;
+let addr = DebugSymbol.getFunctionByName("print_loop");
 Interceptor.attach(addr, {
     onEnter: function(args) {
         args[0] = ptr(10);
