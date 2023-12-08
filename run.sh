@@ -5,7 +5,7 @@ if [ ! -d build ]; then
 fi
 
 pushd build
-EXAMPLE_PID=$(pidof example)
+EXAMPLE_PID=$(ps -Ac -o pid,comm | awk '/^ *[0-9]+ example$/ {print $1}')
 if [ -z $EXAMPLE_PID ]; then
 	echo "Start ./build/example in another terminal"
 else
